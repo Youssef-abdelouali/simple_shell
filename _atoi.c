@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * is_interactive - returns true if shell is interactive
- * @info: struct address
+ * is_interactive - checks if the shell is interactive
+ * @info: structure address
  *
  * Return: 1 if interactive, 0 otherwise
  */
@@ -12,9 +12,10 @@ int is_interactive(info_t *info)
 }
 
 /**
- * is_delim - checks if character is a delimiter
- * @c: char to check
- * @delim: delimiter string
+ * is_delim - checks if a character is a delimiter
+ * @c: character to check
+ * @delimiter: delimiter string
+ *
  * Return: 1 if true, 0 if false
  */
 int is_delim(char c, char *delimiter)
@@ -26,8 +27,9 @@ int is_delim(char c, char *delimiter)
 }
 
 /**
- * is_alpha - checks for alphabetic character
+ * is_alpha - checks if a character is alphabetic
  * @c: character to check
+ *
  * Return: 1 if alphabetic, 0 otherwise
  */
 int is_alpha(int c)
@@ -36,8 +38,9 @@ int is_alpha(int c)
 }
 
 /**
- * atoi_custom - converts string to integer
- * @s: string to be converted
+ * atoi_custom - converts a string to an integer
+ * @str: string to be converted
+ *
  * Return: 0 if no numbers, converted number otherwise
  */
 int atoi_custom(char *str)
@@ -45,7 +48,7 @@ int atoi_custom(char *str)
 	int i, sign = 1, flag = 0, result;
 	unsigned int output = 0;
 
-	for (i = 0;  str[i] != '\0' && flag != 2; i++)
+	for (i = 0; str[i] != '\0' && flag != 2; i++)
 	{
 		if (str[i] == '-')
 			sign *= -1;
