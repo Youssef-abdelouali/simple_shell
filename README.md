@@ -1,72 +1,49 @@
-# Shell Programming Course
+# Shell Programming Guide
+
+## Table of Contents
+- [Introduction](#introduction)
+- [PID & PPID](#pid--ppid)
+  - [getpid Example](#getpid-example)
+  - [Exercises](#exercises)
+- [Arguments](#arguments)
+  - [Exercises](#exercises-1)
+- [Read Line](#read-line)
+  - [Example](#example)
+  - [Advanced](#advanced)
+- [Command Line to Arguments Vector](#command-line-to-arguments-vector)
+  - [Advanced](#advanced-1)
+- [Executing a Program](#executing-a-program)
+  - [execve Example](#execve-example)
+- [Creating Processes](#creating-processes)
+  - [fork Example](#fork-example)
+- [Wait](#wait)
+  - [wait Example](#wait-example)
+  - [Exercises](#exercises-2)
+- [Super Simple Shell](#super-simple-shell)
+- [File Information](#file-information)
+  - [stat Example](#stat-example)
+  - [Exercise: Find a File in the PATH](#exercise-find-a-file-in-the-path)
+- [Environment](#environment)
+  - [Accessing Environment](#accessing-environment)
+  - [Exercises](#exercises-3)
 
 ## Introduction
 
-This repository contains materials and exercises for a shell programming course. The course covers fundamental concepts related to process management, file information, environment variables, and more. Below is an overview of key topics and exercises covered in the course.
+This guide provides an overview of shell programming concepts and exercises to help you understand and practice various aspects of shell scripting.
 
-## Table of Contents
+## PID & PPID
 
-### PID & PPID
+A process is an instance of an executing program with a unique process ID (PID). The parent process ID (PPID) indicates the process that created it.
 
-Retrieve process IDs using getpid and getppid system calls.
+### getpid Example
 
-#### Exercises:
+```c
+#include <stdio.h>
+#include <unistd.h>
 
-1. **Print the PID of the parent process.**
-2. **Write a shell script to print the maximum process ID.**
-
-### Command-Line Arguments
-
-Access command-line arguments in the main function.
-
-#### Exercises:
-
-1. **Print all command-line arguments.**
-2. **Implement a program that waits for user input.**
-
-### Executing Programs
-
-Use the execve system call to execute another program.
-
-#### Exercises:
-
-1. **Execute the command /bin/ls -l /usr/.**
-2. **Implement a super simple shell.**
-
-### Creating Processes
-
-Use the fork system call to create a new child process.
-
-#### Exercises:
-
-1. **Write a program with multiple forked child processes.**
-2. **Implement a super simple shell with basic command execution.**
-
-### Process Management
-
-Use the wait system call to wait for child processes to terminate.
-
-#### Exercises:
-
-1. **Implement a program with fork, wait, and execve.**
-2. **Enhance the super simple shell to handle command execution and waiting.**
-
-### File Information
-
-Use the stat system call to get file information.
-
-#### Exercises:
-
-1. **Write a program to check the existence of files.**
-2. **Implement a program to find a file in the PATH.**
-
-### Environment
-
-Understand how processes inherit and manage environments.
-
-#### Exercises:
-
-1. **Print the environment using main with the third parameter.**
-2. **Write functions to work with environment variables.**
-
+int main(void) {
+    pid_t my_pid = getpid();
+    printf("%u\n", my_pid);
+    return 0;
+}
 
